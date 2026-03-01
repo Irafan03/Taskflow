@@ -1,0 +1,30 @@
+package com.taskflow.service;
+
+import com.taskflow.entity.Project;
+import com.taskflow.repository.ProjectRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import java.util.List;
+
+@Service
+@RequiredArgsConstructor
+public class ProjectService {
+
+    private final ProjectRepository projectRepository;
+
+    public List<Project> getAllProjects() {
+        return projectRepository.findAll();
+    }
+
+    public Project getProjectById(Long id) {
+        return projectRepository.findById(id).orElseThrow();
+    }
+
+    public Project createProject(Project project) {
+        return projectRepository.save(project);
+    }
+
+    public void deleteProject(Long id) {
+        projectRepository.deleteById(id);
+    }
+}
