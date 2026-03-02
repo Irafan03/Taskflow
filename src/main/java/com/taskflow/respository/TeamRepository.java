@@ -1,5 +1,4 @@
-// TeamRepository.java
-package com.taskflow.repository;
+package com.taskflow.respository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import com.taskflow.entity.Team;

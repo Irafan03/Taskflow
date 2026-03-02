@@ -1,8 +1,11 @@
 package com.taskflow.entity;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.util.List;
+
 @Entity
 @Table(name = "projects")
 @Data
@@ -20,8 +23,11 @@ public class Project {
     @Column
     private String description;
 
-    @ManyToOne
-    @JoinColumn(name = "team_id", nullable = false)
-    private Team team;
-
+    @ManyToMany
+    @JoinTable(
+            name = "project_teams",
+            joinColumns = @JoinColumn(name = "project_id"),
+            inverseJoinColumns = @JoinColumn(name = "team_id")
+    )
+    private List<Team> teams;
 }

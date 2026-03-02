@@ -6,10 +6,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import com.taskflow.entity.User;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/teams")
 @RequiredArgsConstructor
+
+@CrossOrigin(origins = "http://localhost:5173")
 public class TeamController {
 
     private final TeamService teamService;
@@ -22,6 +26,11 @@ public class TeamController {
     @GetMapping("/{id}")
     public ResponseEntity<Team> getTeamById(@PathVariable Long id) {
         return ResponseEntity.ok(teamService.getTeamById(id));
+    }
+    @GetMapping("/{id}/users")
+    public ResponseEntity<List<User>> getUsersByTeam(@PathVariable Long id) {
+        Team team = teamService.getTeamById(id);
+        return ResponseEntity.ok(team.getMembers());
     }
 
     @PostMapping

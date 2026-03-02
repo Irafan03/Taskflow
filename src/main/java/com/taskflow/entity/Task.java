@@ -22,6 +22,10 @@ public class Task {
     @Column
     private String description;
 
+    @Column
+    @Enumerated(EnumType.STRING)
+    private TaskStatus status = TaskStatus.TODO;
+
     @ManyToOne
     @JoinColumn(name = "project_id", nullable = false)
     private Project project;
@@ -29,5 +33,8 @@ public class Task {
     @ManyToOne
     @JoinColumn(name = "assigned_to", nullable = false)
     private User assignedTo;
+    @ManyToOne
+    @JoinColumn(name = "team_id")
+    private Team team;
 
 }

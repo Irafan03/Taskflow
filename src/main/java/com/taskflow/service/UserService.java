@@ -1,6 +1,6 @@
 package com.taskflow.service;
 import com.taskflow.entity.User;
-import com.taskflow.repository.UserRepository;
+import com.taskflow.respository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.List;

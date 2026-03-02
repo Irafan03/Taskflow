@@ -31,3 +31,17 @@ build/
 
 ### VS Code ###
 .vscode/
+# Backend
+target/
+*.class
+*.jar
+.env
+
+# Frontend
+node_modules/
+dist/
+
+# IDE
+.idea/
+*.iml
+.vscode/
